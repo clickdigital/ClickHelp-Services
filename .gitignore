@@ -1,0 +1,60 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Vue.js build output
+!.github/workflows/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Cypress test results and screenshots
+cypress/screenshots/
+cypress/videos/
+cypress/results/
+
+# TypeScript
+*.tsbuildinfo
+
+# TailwindCSS
+*.css.map
+
+# Cache and temp files
+/.cache/
+temp/
+tmp/
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Linting
+eslintcache
+stylelintcache

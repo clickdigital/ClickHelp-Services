@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "outDir": "dist",             // Ensure an output directory is specified
+    "emitDeclarationOnly": false, // Make sure this is false
+    "noEmit": false,              // Must be false to emit files
+    "lib": ["esnext", "dom"]          
+  },
+  "include": ["src/**/*"]
+}
