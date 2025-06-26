@@ -58,8 +58,7 @@ export const useAuthStore = defineStore("AuthStore", () => {
 
   async function validateMagicLink(link: string, router?: any) {
     const email = window.localStorage.getItem("emailForSignIn");
-    console.log("Email:", email);
-
+   
     if (!email || !isSignInWithEmailLink(auth, link)) return;
   
     try {
@@ -91,11 +90,12 @@ export const useAuthStore = defineStore("AuthStore", () => {
   }
 
   async function signOut(router?: any) {
+    console.log("User clicked SignOut");
     try {
       await firebaseSignOut(auth);
       user.value = null;
       userProfile.value = null;
-      if (router) router.push("/login");
+      if (router) router.push("/home");
     } catch (err: any) {
       error.value = err.message;
       console.error("Sign-out error:", err);

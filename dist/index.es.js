@@ -19499,7 +19499,7 @@ const Pv = ms("AuthStore", () => {
   }
   async function o(y, w) {
     const P = window.localStorage.getItem("emailForSignIn");
-    if (console.log("Email:", P), !(!P || !Gp(bt, y)))
+    if (!(!P || !Gp(bt, y)))
       try {
         const k = await Qp(bt, P, y);
         e.value = k.user, window.localStorage.removeItem("emailForSignIn");
@@ -19514,8 +19514,9 @@ const Pv = ms("AuthStore", () => {
       }
   }
   async function a(y) {
+    console.log("User clicked SignOut");
     try {
-      await rc(bt), e.value = null, t.value = null, y && y.push("/login");
+      await rc(bt), e.value = null, t.value = null, y && y.push("/home");
     } catch (w) {
       r.value = w.message, console.error("Sign-out error:", w);
     }
