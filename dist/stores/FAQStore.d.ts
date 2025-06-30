@@ -1,52 +1,32 @@
 import { Firestore } from 'firebase/firestore';
-import { FAQ } from '../types/FAQ';
-export declare const useFAQStore: import('pinia').StoreDefinition<"faq", Pick<{
-    faqs: import('vue').Ref<{
-        id?: string;
-        content: string;
-        title: string;
-        expiry: string;
-        subject: string;
-    }[], FAQ[] | {
-        id?: string;
-        content: string;
-        title: string;
-        expiry: string;
-        subject: string;
-    }[]>;
+import { Ref } from 'vue';
+export interface ExampleRecord {
+    id?: string;
+    content: string;
+    expiry: string;
+    title: string;
+    subject: string;
+}
+export declare const useFAQStore: import('pinia').StoreDefinition<"faqs", Pick<{
+    records: Ref<ExampleRecord[], ExampleRecord[]>;
     init: (injectedDb: Firestore) => void;
     readRecords: () => Promise<void>;
-}, "faqs">, Pick<{
-    faqs: import('vue').Ref<{
-        id?: string;
-        content: string;
-        title: string;
-        expiry: string;
-        subject: string;
-    }[], FAQ[] | {
-        id?: string;
-        content: string;
-        title: string;
-        expiry: string;
-        subject: string;
-    }[]>;
+    createRecord: (record: Omit<ExampleRecord, "id">) => Promise<void>;
+    updateRecord: (record: ExampleRecord) => Promise<void>;
+    deleteRecord: (id: string) => Promise<void>;
+}, "records">, Pick<{
+    records: Ref<ExampleRecord[], ExampleRecord[]>;
     init: (injectedDb: Firestore) => void;
     readRecords: () => Promise<void>;
+    createRecord: (record: Omit<ExampleRecord, "id">) => Promise<void>;
+    updateRecord: (record: ExampleRecord) => Promise<void>;
+    deleteRecord: (id: string) => Promise<void>;
 }, never>, Pick<{
-    faqs: import('vue').Ref<{
-        id?: string;
-        content: string;
-        title: string;
-        expiry: string;
-        subject: string;
-    }[], FAQ[] | {
-        id?: string;
-        content: string;
-        title: string;
-        expiry: string;
-        subject: string;
-    }[]>;
+    records: Ref<ExampleRecord[], ExampleRecord[]>;
     init: (injectedDb: Firestore) => void;
     readRecords: () => Promise<void>;
-}, "init" | "readRecords">>;
+    createRecord: (record: Omit<ExampleRecord, "id">) => Promise<void>;
+    updateRecord: (record: ExampleRecord) => Promise<void>;
+    deleteRecord: (id: string) => Promise<void>;
+}, "init" | "readRecords" | "createRecord" | "updateRecord" | "deleteRecord">>;
 export type FAQStoreType = ReturnType<typeof useFAQStore>;
