@@ -23,8 +23,9 @@ export const useFAQStore = defineStore("FAQStore", () => {
   const records: Ref<FAQRecord[]> = ref([]);  
   let db: Firestore | null = null;
 
-  const init = (injectedDb: Firestore) => {
+  const init = async (injectedDb: Firestore) => {
     db = injectedDb;
+    await readRecords();
   };
 
   const readRecords = async () => {
