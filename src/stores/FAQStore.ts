@@ -3,7 +3,7 @@ import { defineStore } from "pinia"
 import { ref } from "vue"
 import { collection, onSnapshot, Firestore } from "firebase/firestore"
 
-import type { FAQ } from "@/types/FAQ"
+import type { FAQ } from "@/types/FAQ"  //this is the datatypes used the bottom one is the storetype
 
 let db: Firestore
 
@@ -34,3 +34,5 @@ const readRecords = async () => {
     readRecords
   }
 })
+
+export type FAQStoreType = ReturnType<typeof useFAQStore>;
