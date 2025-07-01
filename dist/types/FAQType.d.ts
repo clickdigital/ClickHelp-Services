@@ -1,4 +1,4 @@
-export interface FAQ {
+export interface FAQType {
     id?: string;
     content: string;
     title: string;

@@ -10,16 +10,11 @@ import {
   Timestamp
 } from "firebase/firestore";
 import { ref, Ref } from "vue";
+import type { ExampleType } from "@/types/ExampleType"
 
-export interface ExampleRecord {
-  id: string;
-  name: string;
-  createdAt?: Timestamp;
-  // Add your other fields here
-}
 
 export const useExampleStore = defineStore("example", () => {
-  const records: Ref<ExampleRecord[]> = ref([]);  
+  const records: Ref<ExampleType[]> = ref([]);  
   let db: Firestore | null = null;
 
   const init = (injectedDb: Firestore) => {
@@ -31,18 +26,18 @@ export const useExampleStore = defineStore("example", () => {
     const snapshot = await getDocs(collection(db, "example"));
     records.value = snapshot.docs.map((doc) => ({
       id: doc.id,
-      ...(doc.data() as Omit<ExampleRecord, "id">),
+      ...(doc.data() as Omit<ExampleType, "id">),
     }));
   };
 
-  const createRecord = async (record: Omit<ExampleRecord, "id">) => {
+  const createRecord = async (record: Omit<ExampleType, "id">) => {
     if (!db) throw new Error("Firestore not initialized");
     const refDoc = doc(collection(db, "example"));
     await setDoc(refDoc, record);
     await readRecords();
   };
 
-  const updateRecord = async (record: ExampleRecord) => {
+  const updateRecord = async (record: ExampleType) => {
     if (!db) throw new Error("Firestore not initialized");
     const refDoc = doc(db, "example", record.id);
     const { id, ...data } = record;
