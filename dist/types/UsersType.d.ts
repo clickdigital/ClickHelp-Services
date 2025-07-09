@@ -1,7 +1,18 @@
 export interface UsersType {
     id?: string;
-    content: string;
-    title: string;
-    expiry: string;
-    subject: string;
+    apps: {
+        crm: {
+            access: string;
+            allowed: boolean;
+            role: string;
+        };
+        www: {
+            allowed: boolean;
+        };
+    };
+    createdAt: string;
+    email: string;
+    firstname: string;
+    lastname: string;
+    updatedAt: string;
 }

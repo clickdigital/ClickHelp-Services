@@ -1,9 +1,20 @@
-// src/types/FAQ.ts (aliased as @/types/FAQ)
+// src/types/UsersType.ts (aliased as @/types/UsersType)
 
 export interface UsersType {
   id?: string;
-  content: string;
-  title: string;
-  expiry: string;
-  subject: string;
+  apps: {
+    crm: {
+      access: string;
+      allowed: boolean;
+      role: string;
+    },
+    www: {
+      allowed: boolean
+    }
+  },
+  createdAt:  string;
+  email: string;
+  firstname: string;
+  lastname: string;
+  updatedAt: string;
 }
