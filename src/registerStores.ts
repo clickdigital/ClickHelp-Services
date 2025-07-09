@@ -4,6 +4,7 @@ import type { App } from "vue";
 import { useMainStore } from "./stores/MainStore";
 import { useExampleStore } from "./stores/ExampleStore";
 import { useFAQStore } from "./stores/FAQStore";
+import { useUsersStore } from "./stores/UsersStore";
 
 // 🧩 Options-style stores (defined using defineStore({ ... })) - classic version - simpler
 import { useAuthStore } from "./stores/AuthStore";
@@ -16,6 +17,7 @@ export function registerStores(app: App) {
   const storAuth = useAuthStore();
   const storOption = useOptionStore();
   const storFAQ = useFAQStore();
+  const storUsers = useUsersStore();
 
   // ✅ Provide each one using app.provide
   app.provide("storMain", storMain);
@@ -23,4 +25,5 @@ export function registerStores(app: App) {
   app.provide("storAuth", storAuth);
   app.provide("storOption", storOption);
   app.provide("storFAQ", storFAQ);
+  app.provide("storUsers", storUsers);
 }
